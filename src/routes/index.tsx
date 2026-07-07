@@ -190,9 +190,9 @@ function Portfolio() {
     <main className="min-h-screen w-full overflow-x-hidden bg-[#0b0120] text-white">
       {/* Glow blobs */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute left-[10%] top-[5%] h-[200px] w-[200px] md:h-[300px] md:w-[300px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.5)_0%,transparent_100%)] blur-2xl animate-pulse-glow" />
-        <div className="absolute right-[15%] top-[40%] h-[250px] w-[250px] md:h-[400px] md:w-[400px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(78,20,152,0.4)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute bottom-[10%] left-[20%] h-[200px] w-[200px] md:h-[350px] md:w-[350px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.35)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "3s" }} />
+        <div className="absolute left-[10%] top-[5%] h-[150px] w-[150px] md:h-[300px] md:w-[300px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.15)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.5)_0%,transparent_100%)] blur-2xl animate-pulse-glow" />
+        <div className="absolute right-[15%] top-[40%] h-[150px] w-[150px] md:h-[400px] md:w-[400px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(78,20,152,0.1)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(78,20,152,0.4)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute bottom-[10%] left-[20%] h-[150px] w-[150px] md:h-[350px] md:w-[350px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.1)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.35)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "3s" }} />
       </div>
 
       {/* Hero Section */}
@@ -203,7 +203,7 @@ function Portfolio() {
         <div className="flex flex-col items-center gap-6 md:flex-row md:items-center md:gap-10">
           {/* Avatar */}
           <div className="relative flex h-[180px] w-[180px] md:h-[250px] md:w-[250px] flex-shrink-0 items-center justify-center">
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.85)_0%,transparent_70%)] animate-pulse-glow" />
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.4)_0%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.85)_0%,transparent_70%)] animate-pulse-glow" />
             <div className="absolute inset-[6px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.15)_18%,transparent_100%)]" />
             <div className="shine-ring relative z-10 h-[200px] w-[200px] md:h-[290px] md:w-[290px] rounded-full">
               <img
@@ -313,8 +313,8 @@ function Portfolio() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="h-[120px] w-[210px] md:h-[220px] md:w-[480px] rounded-full border border-white/10" />
           </div>
-          <div className="absolute h-[160px] w-[240px] md:h-[300px] md:w-[500px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.75)_0%,transparent_100%)] animate-pulse-glow" />
-          <div className="absolute h-[100px] w-[100px] md:h-[180px] md:w-[180px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.9)_0%,rgba(48,16,128,0.6)_40%,transparent_70%)]" />
+          <div className="absolute h-[160px] w-[240px] md:h-[300px] md:w-[500px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.75)_0%,transparent_100%)] animate-pulse-glow" />
+          <div className="absolute h-[100px] w-[100px] md:h-[180px] md:w-[180px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.4)_0%,rgba(48,16,128,0.3)_40%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.9)_0%,rgba(48,16,128,0.6)_40%,transparent_70%)]" />
           <div className="relative z-10 flex h-[90px] w-[90px] md:h-[130px] md:w-[130px] items-center justify-center animate-float-slow -translate-x-2 md:-translate-x-3">
             <LogoMark size={120} />
           </div>
