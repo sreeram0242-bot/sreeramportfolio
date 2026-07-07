@@ -14,7 +14,7 @@ export function DustParticles() {
 
   useEffect(() => {
     // Generate particles only on the client side so it doesn't cause hydration mismatch
-    const newParticles = Array.from({ length: 250 }).map((_, i) => ({
+    const newParticles = Array.from({ length: 50 }).map((_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
@@ -26,7 +26,7 @@ export function DustParticles() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden mix-blend-screen">
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       {particles.map((p) => (
         <div
           key={p.id}

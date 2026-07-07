@@ -268,9 +268,9 @@ function Portfolio() {
 
       {/* Glow blobs */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute left-[10%] top-[5%] h-[200px] w-[200px] md:h-[300px] md:w-[300px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.4)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.5)_0%,transparent_100%)] blur-2xl animate-pulse-glow" />
-        <div className="absolute right-[15%] top-[40%] h-[200px] w-[200px] md:h-[400px] md:w-[400px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.4)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute bottom-[10%] left-[20%] h-[200px] w-[200px] md:h-[350px] md:w-[350px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.35)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "3s" }} />
+        <div className="absolute left-[10%] top-[5%] h-[200px] w-[200px] md:h-[300px] md:w-[300px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.4)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.5)_0%,transparent_100%)] animate-pulse-glow" />
+        <div className="absolute right-[15%] top-[40%] h-[200px] w-[200px] md:h-[400px] md:w-[400px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.4)_0%,transparent_100%)] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute bottom-[10%] left-[20%] h-[200px] w-[200px] md:h-[350px] md:w-[350px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.35)_0%,transparent_100%)] animate-pulse-glow" style={{ animationDelay: "3s" }} />
       </div>
 
       {/* Hero Section */}
