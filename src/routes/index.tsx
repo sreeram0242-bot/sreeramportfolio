@@ -70,7 +70,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "This is a Billing Software For Restaurants with Smart QR Ordering feature, Smart Billing, Easy Ordering, Safe payments. Separate Portals For Admin, Customer and Waiter.",
     image: qrBillingImg,
-    bgColor: "#2b0b3a",
+    bgColor: "#0f172a",
     links: [
       { icon: <Globe size={18} />, label: "Live Demo" },
       { icon: <Github size={18} />, label: "GitHub" },
@@ -82,7 +82,7 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "This is a E-Commerce website. The Admin Can Add as Many Products He Want, He can Manage his Users, Orders, Payments, etc., With Smooth User experience.",
     image: ecommerceImg,
-    bgColor: "#2b0b3a",
+    bgColor: "#0f172a",
     links: [
       { icon: <Globe size={18} />, label: "Live Demo" },
       { icon: <Github size={18} />, label: "GitHub" },
@@ -100,8 +100,8 @@ function LogoMark({ size = 72 }: { size?: number }) {
           width: size * 0.35,
           height: size * 0.35,
           background:
-            "radial-gradient(circle, #ffffff 0%, #a261ff 40%, #3a0e6b 100%)",
-          boxShadow: "0 0 20px #a261ff, 0 0 40px rgba(162,97,255,0.6)",
+            "radial-gradient(circle, #ffffff 0%, #60a5fa 40%, #1e3a8a 100%)",
+          boxShadow: "0 0 20px #60a5fa, 0 0 40px rgba(96,165,250,0.6)",
         }}
       />
       {/* Orbit rings with dots */}
@@ -112,8 +112,8 @@ function LogoMark({ size = 72 }: { size?: number }) {
         className="absolute inset-0 animate-spin-slow"
         style={{ animationDuration: "10s" }}
       >
-        <ellipse cx="50" cy="50" rx="45" ry="18" fill="none" stroke="rgba(162,97,255,0.5)" strokeWidth="1" />
-        <circle cx="95" cy="50" r="3" fill="#a261ff">
+        <ellipse cx="50" cy="50" rx="45" ry="18" fill="none" stroke="rgba(96,165,250,0.5)" strokeWidth="1" />
+        <circle cx="95" cy="50" r="3" fill="#60a5fa">
           <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
         </circle>
       </svg>
@@ -124,7 +124,7 @@ function LogoMark({ size = 72 }: { size?: number }) {
         className="absolute inset-0 animate-spin-slow"
         style={{ animationDuration: "14s", animationDirection: "reverse", transform: "rotate(60deg)" }}
       >
-        <ellipse cx="50" cy="50" rx="45" ry="18" fill="none" stroke="rgba(162,97,255,0.4)" strokeWidth="1" />
+        <ellipse cx="50" cy="50" rx="45" ry="18" fill="none" stroke="rgba(96,165,250,0.4)" strokeWidth="1" />
         <circle cx="5" cy="50" r="2.5" fill="#ffffff">
           <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" />
         </circle>
@@ -136,8 +136,8 @@ function LogoMark({ size = 72 }: { size?: number }) {
         className="absolute inset-0 animate-spin-slow"
         style={{ animationDuration: "18s", transform: "rotate(120deg)" }}
       >
-        <ellipse cx="50" cy="50" rx="45" ry="18" fill="none" stroke="rgba(162,97,255,0.3)" strokeWidth="1" />
-        <circle cx="95" cy="50" r="2" fill="#7127ba">
+        <ellipse cx="50" cy="50" rx="45" ry="18" fill="none" stroke="rgba(96,165,250,0.3)" strokeWidth="1" />
+        <circle cx="95" cy="50" r="2" fill="#2563eb">
           <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite" />
         </circle>
       </svg>
@@ -187,23 +187,53 @@ function Portfolio() {
   }, []);
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#0b0120] text-white">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#020617] text-white">
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center py-4 px-6 bg-[#020617]/80 backdrop-blur-md border-b border-white/5 shadow-[0_4px_30px_rgba(37,99,235,0.15)] animate-fade-up">
+        <ul className="flex items-center gap-8 font-poppins text-sm md:text-base font-medium text-white/80">
+          <li>
+            <a
+              href="#lab"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('lab')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+
       {/* Glow blobs */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute left-[10%] top-[5%] h-[150px] w-[150px] md:h-[300px] md:w-[300px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.15)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.5)_0%,transparent_100%)] blur-2xl animate-pulse-glow" />
-        <div className="absolute right-[15%] top-[40%] h-[150px] w-[150px] md:h-[400px] md:w-[400px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(78,20,152,0.1)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(78,20,152,0.4)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute bottom-[10%] left-[20%] h-[150px] w-[150px] md:h-[350px] md:w-[350px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.1)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.35)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "3s" }} />
+        <div className="absolute left-[10%] top-[5%] h-[150px] w-[150px] md:h-[300px] md:w-[300px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.15)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.5)_0%,transparent_100%)] blur-2xl animate-pulse-glow" />
+        <div className="absolute right-[15%] top-[40%] h-[150px] w-[150px] md:h-[400px] md:w-[400px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.1)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.4)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute bottom-[10%] left-[20%] h-[150px] w-[150px] md:h-[350px] md:w-[350px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.1)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.35)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "3s" }} />
       </div>
 
       {/* Hero Section */}
       <section
         id="home"
-        className="relative z-10 max-w-[1100px] px-4 pb-2 pt-6 md:px-10 md:pb-4 md:pt-16"
+        className="relative z-10 max-w-[1100px] mx-auto px-4 pb-2 pt-24 md:px-10 md:pb-4 md:pt-32"
       >
         <div className="flex flex-col items-center gap-6 md:flex-row md:items-center md:gap-10">
           {/* Avatar */}
           <div className="relative flex h-[180px] w-[180px] md:h-[250px] md:w-[250px] flex-shrink-0 items-center justify-center">
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.4)_0%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.85)_0%,transparent_70%)] animate-pulse-glow" />
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.4)_0%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.85)_0%,transparent_70%)] animate-pulse-glow" />
             <div className="absolute inset-[6px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.15)_18%,transparent_100%)]" />
             <div className="shine-ring relative z-10 h-[200px] w-[200px] md:h-[290px] md:w-[290px] rounded-full">
               <img
@@ -253,7 +283,7 @@ function Portfolio() {
           {/* Mobile */}
           <div className="flex flex-col gap-2 md:hidden rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
             <h2 className="font-preahvihear text-[20px] whitespace-nowrap font-normal leading-[1.2] text-white">
-              I&apos;m a Full Stack <span className="text-[#471977]">Developer</span>
+              I&apos;m a Full Stack <span className="text-[#1d4ed8]">Developer</span>
             </h2>
             <ul className="mt-3 font-preahvihear text-[12px] leading-[1.6] tracking-[0.3px] text-white/90 list-disc pl-5 pr-2">
               <li>A self-taught UI/UX designer</li>
@@ -267,7 +297,7 @@ function Portfolio() {
           {/* Desktop */}
           <div className="hidden md:block">
             <h2 className="font-preahvihear text-[50px] font-normal leading-[1.1] tracking-[1px] text-white">
-              I&apos;m a Full Stack <span className="text-[#471977]">Developer</span>
+              I&apos;m a Full Stack <span className="text-[#1d4ed8]">Developer</span>
             </h2>
             <p className="mt-2 font-preahvihear text-[21px] tracking-[0.42px] text-white/90">
               I&apos;m sreeram, i work for startups, and as freelancer ...
@@ -289,7 +319,7 @@ function Portfolio() {
         <div className="mx-auto max-w-[700px] text-center">
           <h3 className="font-preahvihear text-[18px] md:text-[26px] font-normal leading-[1.4] tracking-[0.48px] text-white">
             I&apos;m currently looking to join a{" "}
-            <span className="text-[#a261ff]">cross-functional</span> team
+            <span className="text-[#60a5fa]">cross-functional</span> team
           </h3>
           <p className="mt-1 font-preahvihear text-[12px] md:text-[17px] tracking-[0.06px] text-white/75">
             that values improving people&apos;s lives through accessible design
@@ -313,8 +343,8 @@ function Portfolio() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="h-[120px] w-[210px] md:h-[220px] md:w-[480px] rounded-full border border-white/10" />
           </div>
-          <div className="absolute h-[160px] w-[240px] md:h-[300px] md:w-[500px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(118,60,172,0.75)_0%,transparent_100%)] animate-pulse-glow" />
-          <div className="absolute h-[100px] w-[100px] md:h-[180px] md:w-[180px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.4)_0%,rgba(48,16,128,0.3)_40%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(113,39,186,0.9)_0%,rgba(48,16,128,0.6)_40%,transparent_70%)]" />
+          <div className="absolute h-[160px] w-[240px] md:h-[300px] md:w-[500px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.75)_0%,transparent_100%)] animate-pulse-glow" />
+          <div className="absolute h-[100px] w-[100px] md:h-[180px] md:w-[180px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.4)_0%,rgba(30,58,138,0.3)_40%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.9)_0%,rgba(30,58,138,0.6)_40%,transparent_70%)]" />
           <div className="relative z-10 flex h-[90px] w-[90px] md:h-[130px] md:w-[130px] items-center justify-center animate-float-slow -translate-x-2 md:-translate-x-3">
             <LogoMark size={120} />
           </div>
@@ -329,8 +359,8 @@ function Portfolio() {
           ].map((pos, i) => (
             <div
               key={i}
-              className={`absolute ${pos} h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-[#a261ff]/70 animate-sparkle`}
-              style={{ boxShadow: "0 0 6px #a261ff", animationDelay: `${i * 0.3}s` }}
+              className={`absolute ${pos} h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-[#60a5fa]/70 animate-sparkle`}
+              style={{ boxShadow: "0 0 6px #60a5fa", animationDelay: `${i * 0.3}s` }}
             />
           ))}
         </div>
@@ -362,7 +392,7 @@ function Portfolio() {
               </article>
 
               <div
-                className="group rounded-[8px] md:rounded-[10px] p-3 md:p-6 shadow-[0_0_60px_rgba(113,39,186,0.15)] transition-all duration-500 hover:shadow-[0_0_80px_rgba(113,39,186,0.4)]"
+                className="group rounded-[8px] md:rounded-[10px] p-3 md:p-6 shadow-[0_0_60px_rgba(37,99,235,0.15)] transition-all duration-500 hover:shadow-[0_0_80px_rgba(37,99,235,0.4)]"
                 style={{ backgroundColor: project.bgColor }}
               >
                 <div className="relative h-[200px] md:h-[340px] w-full overflow-hidden rounded-[6px] md:rounded-[8px]">
@@ -372,7 +402,7 @@ function Portfolio() {
                     alt={project.title}
                     className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 z-20 rounded-lg border border-white/10 bg-[#0b0120]/80 px-2 py-1 md:px-3 md:py-1.5 backdrop-blur-sm">
+                  <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 z-20 rounded-lg border border-white/10 bg-[#020617]/80 px-2 py-1 md:px-3 md:py-1.5 backdrop-blur-sm">
                     <p className="font-poppins text-[10px] md:text-xs font-semibold text-white">
                       {project.title}
                     </p>
@@ -444,7 +474,7 @@ function Portfolio() {
                 key={social.label}
                 href={social.href}
                 aria-label={social.label}
-                className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/60 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:border-[#7127ba]/50 hover:bg-[#7127ba]/15 hover:text-white hover:shadow-[0_0_15px_rgba(113,39,186,0.5)]"
+                className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/60 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:border-[#2563eb]/50 hover:bg-[#2563eb]/15 hover:text-white hover:shadow-[0_0_15px_rgba(37,99,235,0.5)]"
               >
                 {social.icon}
               </a>

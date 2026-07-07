@@ -207,7 +207,7 @@
   animation: fade-up 0.8s ease-out both;
 }
 @utility text-shimmer {
-  background: linear-gradient(90deg, #3a0e6b 0%, #a261ff 25%, #4a1285 50%, #a261ff 75%, #3a0e6b 100%);
+  background: linear-gradient(90deg, #1e3a8a 0%, #60a5fa 25%, #1d4ed8 50%, #60a5fa 75%, #1e3a8a 100%);
   background-size: 200% 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -230,18 +230,18 @@
     background: conic-gradient(
       from 0deg,
       transparent 0%,
-      #a261ff 20%,
-      #3a0e6b 35%,
-      #7127ba 50%,
+      #60a5fa 20%,
+      #1e3a8a 35%,
+      #2563eb 50%,
       transparent 70%,
-      #a261ff 90%,
+      #60a5fa 90%,
       transparent 100%
     );
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
     animation: ring-pulse 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 12px rgba(162, 97, 255, 0.6));
+    filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.6));
     pointer-events: none;
     z-index: 5;
   }
@@ -255,15 +255,15 @@
       from 0deg,
       transparent 0deg,
       transparent 340deg,
-      #2a0752 350deg,
-      #4a1084 355deg,
-      #2a0752 360deg
+      #172554 350deg,
+      #1d4ed8 355deg,
+      #172554 360deg
     );
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
     animation: ring-travel 3s linear infinite;
-    filter: drop-shadow(0 0 6px rgba(74, 16, 132, 0.9));
+    filter: drop-shadow(0 0 6px rgba(30, 58, 138, 0.9));
     pointer-events: none;
     z-index: 6;
   }
@@ -300,18 +300,18 @@
     padding: 1.5px;
     background: linear-gradient(
       90deg,
-      rgba(58, 14, 107, 0.9) 0%,
-      rgba(162, 97, 255, 0.95) 25%,
+      rgba(23, 37, 84, 0.9) 0%,
+      rgba(96, 165, 250, 0.95) 25%,
       rgba(255, 255, 255, 0.85) 45%,
-      rgba(162, 97, 255, 0.95) 65%,
-      rgba(58, 14, 107, 0.9) 100%
+      rgba(96, 165, 250, 0.95) 65%,
+      rgba(23, 37, 84, 0.9) 100%
     );
     background-size: 200% 100%;
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
     animation: border-travel 3.5s linear infinite;
-    filter: drop-shadow(0 0 8px rgba(162, 97, 255, 0.5));
+    filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
     pointer-events: none;
     z-index: -1;
   }
