@@ -182,6 +182,17 @@
   to   { transform: rotate(360deg); }
 }
 
+@keyframes dust {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(-40vh) translateX(20px); opacity: 0; }
+}
+
+@utility animate-dust {
+  animation: dust linear infinite;
+}
+
 @utility reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -212,7 +223,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 6s linear infinite;
+  animation: shimmer 12s linear infinite;
 }
 
 @keyframes ring-pulse {

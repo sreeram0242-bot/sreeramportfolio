@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
-import { Github, Twitter, Linkedin, ExternalLink, Globe } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Github, Twitter, Linkedin, ExternalLink, Globe, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DustParticles } from "@/components/ui/dust-particles";
 import profilePic from "@/assets/profile.png";
 import qrBillingImg from "@/assets/qr-billing.png";
 import ecommerceImg from "@/assets/ecommerce.png";
@@ -169,6 +170,8 @@ function TechBadge({
 }
 
 function Portfolio() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(".reveal");
     const io = new IntersectionObserver(
@@ -187,42 +190,87 @@ function Portfolio() {
   }, []);
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#020617] text-white">
-      {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center py-4 px-6 bg-[#020617]/80 backdrop-blur-md border-b border-white/5 shadow-[0_4px_30px_rgba(37,99,235,0.15)] animate-fade-up">
-        <ul className="flex items-center gap-8 font-poppins text-sm md:text-base font-medium text-white/80">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#020617] text-white lg:pl-64">
+      <DustParticles />
+      {/* Sidebar */}
+      <aside className="fixed left-0 top-0 bottom-0 z-50 w-64 bg-[#020617]/80 backdrop-blur-md border-r border-white/10 hidden lg:flex flex-col p-8">
+        <h2 className="text-white font-preahvihear text-2xl mb-12">SREERAM.</h2>
+        <ul className="flex flex-col gap-6 font-poppins text-base font-medium text-white/80">
           <li>
-            <a
-              href="#lab"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('lab')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-white transition-colors cursor-pointer"
-            >
-              Projects
-            </a>
+            <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">About</a>
           </li>
           <li>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-white transition-colors cursor-pointer"
-            >
-              Contact
-            </a>
+            <a href="#skills" onClick={(e) => { e.preventDefault(); document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">Skills</a>
+          </li>
+          <li>
+            <a href="#lab" onClick={(e) => { e.preventDefault(); document.getElementById('lab')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">Projects</a>
+          </li>
+          <li>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">Contact</a>
           </li>
         </ul>
+      </aside>
+
+      {/* Mobile Top Header (only visible on mobile) */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex lg:hidden items-center justify-between py-2 px-4 bg-[#020617]/80 backdrop-blur-md border-b border-white/40 animate-fade-up">
+        <ul className="flex items-center gap-3 sm:gap-6 font-poppins text-[11px] sm:text-sm font-medium text-white/80 whitespace-nowrap overflow-x-auto no-scrollbar flex-1 pr-2">
+          <li>
+            <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">About</a>
+          </li>
+          <li className="text-white/20 font-light">|</li>
+          <li>
+            <a href="#skills" onClick={(e) => { e.preventDefault(); document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">Skills</a>
+          </li>
+          <li className="text-white/20 font-light">|</li>
+          <li>
+            <a href="#lab" onClick={(e) => { e.preventDefault(); document.getElementById('lab')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">Projects</a>
+          </li>
+          <li className="text-white/20 font-light">|</li>
+          <li>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">Contact</a>
+          </li>
+        </ul>
+        <button onClick={() => setIsMobileMenuOpen(true)} className="p-1 ml-2 hover:text-white/70 transition-colors flex-shrink-0 border-l border-white/20 pl-4">
+          <Menu size={24} />
+        </button>
       </nav>
+
+      {/* Mobile Sidebar Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm lg:hidden animate-fade-in"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Slide-out Sidebar */}
+      <aside className={`fixed top-0 right-0 bottom-0 z-[70] w-64 bg-[#020617]/95 backdrop-blur-xl border-l border-white/10 p-8 flex flex-col transform transition-transform duration-300 lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="flex justify-end mb-8">
+          <button onClick={() => setIsMobileMenuOpen(false)} className="p-1 hover:text-white/70 transition-colors">
+            <X size={26} />
+          </button>
+        </div>
+        <ul className="flex flex-col gap-8 font-poppins text-lg font-medium text-white/80">
+          <li>
+            <a href="#about" onClick={(e) => { setIsMobileMenuOpen(false); e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">About</a>
+          </li>
+          <li>
+            <a href="#skills" onClick={(e) => { setIsMobileMenuOpen(false); e.preventDefault(); document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">Skills</a>
+          </li>
+          <li>
+            <a href="#lab" onClick={(e) => { setIsMobileMenuOpen(false); e.preventDefault(); document.getElementById('lab')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">Projects</a>
+          </li>
+          <li>
+            <a href="#contact" onClick={(e) => { setIsMobileMenuOpen(false); e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-white transition-colors cursor-pointer">Contact</a>
+          </li>
+        </ul>
+      </aside>
 
       {/* Glow blobs */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute left-[10%] top-[5%] h-[150px] w-[150px] md:h-[300px] md:w-[300px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.15)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.5)_0%,transparent_100%)] blur-2xl animate-pulse-glow" />
-        <div className="absolute right-[15%] top-[40%] h-[150px] w-[150px] md:h-[400px] md:w-[400px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.1)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.4)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute bottom-[10%] left-[20%] h-[150px] w-[150px] md:h-[350px] md:w-[350px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.1)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.35)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "3s" }} />
+        <div className="absolute left-[10%] top-[5%] h-[200px] w-[200px] md:h-[300px] md:w-[300px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.4)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.5)_0%,transparent_100%)] blur-2xl animate-pulse-glow" />
+        <div className="absolute right-[15%] top-[40%] h-[200px] w-[200px] md:h-[400px] md:w-[400px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(29,78,216,0.4)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute bottom-[10%] left-[20%] h-[200px] w-[200px] md:h-[350px] md:w-[350px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.35)_0%,transparent_100%)] blur-2xl animate-pulse-glow" style={{ animationDelay: "3s" }} />
       </div>
 
       {/* Hero Section */}
@@ -233,8 +281,13 @@ function Portfolio() {
         <div className="flex flex-col items-center gap-6 md:flex-row md:items-center md:gap-10">
           {/* Avatar */}
           <div className="relative flex h-[180px] w-[180px] md:h-[250px] md:w-[250px] flex-shrink-0 items-center justify-center">
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.4)_0%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.85)_0%,transparent_70%)] animate-pulse-glow" />
-            <div className="absolute inset-[6px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.15)_18%,transparent_100%)]" />
+            {/* The solid black circle */}
+            <div className="absolute z-0 h-[200px] w-[200px] md:h-[290px] md:w-[290px] rounded-full bg-blue-950/40" />
+
+            {/* The glows (placed in front of the black circle, but behind the image) */}
+            <div className="absolute z-1 -inset-[30px] md:-inset-[40px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.6)_0%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.85)_0%,transparent_70%)] animate-pulse-glow pointer-events-none" />
+            <div className="absolute z-1 -inset-[10px] md:-inset-[20px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.15)_18%,transparent_100%)] pointer-events-none" />
+
             <div className="shine-ring relative z-10 h-[200px] w-[200px] md:h-[290px] md:w-[290px] rounded-full">
               <img
                 src={profilePic}
@@ -247,6 +300,7 @@ function Portfolio() {
 
           {/* Intro text */}
           <div className="relative w-full flex flex-col md:block animate-fade-up">
+
             <div className="text-left w-full overflow-x-auto no-scrollbar">
               <div className="mb-2 flex flex-nowrap items-center justify-start gap-1.5 font-preahvihear text-[13px] md:text-[17px] tracking-[0.34px] whitespace-nowrap">
                 <span className="text-white">Hi i am</span>
@@ -255,7 +309,7 @@ function Portfolio() {
               </div>
             </div>
 
-            <div className="mb-4 text-right md:text-left self-end md:self-auto w-full px-3 -mx-3 py-2 -my-2 md:py-0">
+            <div className="mb-0 md:mb-4 text-right md:text-left self-end md:self-auto w-full px-3 -mx-3 py-2 -my-2 md:py-0">
               <h1 className="inline-block font-preahvihear text-[22px] sm:text-[32px] md:text-[50px] font-normal leading-[1.15] md:leading-[1.05] tracking-[0.5px] text-right md:text-left">
                 <span className="text-white">
                   Judges a book
@@ -266,10 +320,9 @@ function Portfolio() {
                   <span className="pointer-events-none absolute left-1/2 top-1/2 h-[34px] w-[86px] md:h-[52px] md:w-[170px] -translate-x-1/2 -translate-y-1/2 -rotate-[4.74deg] rounded-full border border-white/70" />
                   <span className="relative z-10 text-shimmer">cover</span>
                 </span>
-                <span className="text-white">...</span>
               </h1>
             </div>
-            <p className="-mt-1 md:mt-0 font-preahvihear text-[10px] md:text-[11px] tracking-[0.22px] text-white/80 text-right md:text-left w-full">
+            <p className="mt-1 md:mt-4 font-preahvihear text-[10px] md:text-[11px] tracking-[0.22px] text-white text-right md:text-left w-full">
               Because if the cover does not impress you what else can?
             </p>
           </div>
@@ -278,12 +331,12 @@ function Portfolio() {
       </section>
 
       {/* Full stack section */}
-      <div className="reveal relative z-10 flex justify-start md:justify-end px-4 pb-2 md:px-10 md:pb-4">
+      <div id="about" className="reveal relative z-10 flex justify-start md:justify-end px-4 pb-2 md:px-10 md:pb-4">
         <div className="max-w-full md:max-w-[760px]">
           {/* Mobile */}
           <div className="flex flex-col gap-2 md:hidden rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
             <h2 className="font-preahvihear text-[20px] whitespace-nowrap font-normal leading-[1.2] text-white">
-              I&apos;m a Full Stack <span className="text-[#1d4ed8]">Developer</span>
+              I&apos;m a Full Stack <span className="text-shimmer">Developer</span>
             </h2>
             <ul className="mt-3 font-preahvihear text-[12px] leading-[1.6] tracking-[0.3px] text-white/90 list-disc pl-5 pr-2">
               <li>A self-taught UI/UX designer</li>
@@ -297,7 +350,7 @@ function Portfolio() {
           {/* Desktop */}
           <div className="hidden md:block">
             <h2 className="font-preahvihear text-[50px] font-normal leading-[1.1] tracking-[1px] text-white">
-              I&apos;m a Full Stack <span className="text-[#1d4ed8]">Developer</span>
+              I&apos;m a Full Stack <span className="text-shimmer">Developer</span>
             </h2>
             <p className="mt-2 font-preahvihear text-[21px] tracking-[0.42px] text-white/90">
               I&apos;m sreeram, i work for startups, and as freelancer ...
@@ -315,11 +368,11 @@ function Portfolio() {
       </div>
 
       {/* Tech Stack Section */}
-      <section className="reveal relative z-10 mx-auto max-w-[1100px] px-4 pt-4 pb-6 md:px-10 md:py-16">
+      <section id="skills" className="reveal relative z-10 mx-auto max-w-[1100px] px-4 pt-4 pb-6 md:px-10 md:py-16">
         <div className="mx-auto max-w-[700px] text-center">
           <h3 className="font-preahvihear text-[18px] md:text-[26px] font-normal leading-[1.4] tracking-[0.48px] text-white">
             I&apos;m currently looking to join a{" "}
-            <span className="text-[#60a5fa]">cross-functional</span> team
+            <span className="text-shimmer">cross-functional</span> team
           </h3>
           <p className="mt-1 font-preahvihear text-[12px] md:text-[17px] tracking-[0.06px] text-white/75">
             that values improving people&apos;s lives through accessible design
@@ -343,8 +396,8 @@ function Portfolio() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="h-[120px] w-[210px] md:h-[220px] md:w-[480px] rounded-full border border-white/10" />
           </div>
-          <div className="absolute h-[160px] w-[240px] md:h-[300px] md:w-[500px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.3)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.75)_0%,transparent_100%)] animate-pulse-glow" />
-          <div className="absolute h-[100px] w-[100px] md:h-[180px] md:w-[180px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.4)_0%,rgba(30,58,138,0.3)_40%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.9)_0%,rgba(30,58,138,0.6)_40%,transparent_70%)]" />
+          <div className="absolute h-[160px] w-[240px] md:h-[300px] md:w-[500px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.5)_0%,transparent_100%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.75)_0%,transparent_100%)] animate-pulse-glow" />
+          <div className="absolute h-[100px] w-[100px] md:h-[180px] md:w-[180px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.6)_0%,rgba(30,58,138,0.4)_40%,transparent_70%)] md:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(37,99,235,0.9)_0%,rgba(30,58,138,0.6)_40%,transparent_70%)]" />
           <div className="relative z-10 flex h-[90px] w-[90px] md:h-[130px] md:w-[130px] items-center justify-center animate-float-slow -translate-x-2 md:-translate-x-3">
             <LogoMark size={120} />
           </div>
